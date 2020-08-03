@@ -15,8 +15,8 @@ import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
-    val CITY: String = "Nairobi , KE"
-    val API: String = "717976e8e68895aa1b498096a4fe6c43" // Use your own API key fro Open weather
+    val CITY: String = "Cairo , Egypt"
+    val API: String = "d845d2e9037d492993a7d145294827b6" // Use your own API key fro Open weather
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
