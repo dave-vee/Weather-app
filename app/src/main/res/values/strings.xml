@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">WeatherApp</string>
+    <string name="enter_name_of_city_here">Enter name of city here</string>
+    <string name="refresh">Refresh</string>
+    <string name="enter_city_name_here">Enter City Name here</string>
+
 </resources>
