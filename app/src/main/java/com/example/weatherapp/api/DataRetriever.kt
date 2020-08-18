@@ -3,7 +3,7 @@ package com.example.weatherapp.api
 // Other imported classes
 
 
-import com.example.weatherapp.RetroResult
+import com.example.weatherapp.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -27,7 +27,7 @@ class DataRetriever {
         service = retrofit.create(WeatherService::class.java)
     }
 
-    suspend fun getData(): RetroResult {
+    suspend fun getData(): Response {
         return service.searchData()
     }
 

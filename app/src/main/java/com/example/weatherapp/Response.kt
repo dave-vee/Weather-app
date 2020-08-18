@@ -1,8 +1,6 @@
 package com.example.weatherapp
 
-import java.io.DataInputStream
-
-data class RetroResult(val dataInputStream: DataInputStream)
+//data class RetroResult(val dataInputStream: DataInputStream)
 data class Response(
     var date: Double?,
     var name: String?,
@@ -13,7 +11,7 @@ data class Response(
     var humidity: Long?,
     var sunrise: String?,
     var sunset: String,
-    var description: Boolean,
+    var description: String,
     var address: String?
 
 )

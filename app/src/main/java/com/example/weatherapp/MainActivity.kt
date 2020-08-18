@@ -12,6 +12,8 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.weatherapp.api.DataRetriever
 import kotlinx.coroutines.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -58,6 +60,34 @@ class MainActivity : AppCompatActivity() {
         coroutineScope.launch(errorHandler) {
             //4
             val resultList = DataRetriever().getData()
+
+            val updatedAt = resultList.date
+            val temp = resultList.temp
+            val tempMin = resultList.tempMin
+            val tempMax = resultList.tempMax
+            val humidity = resultList.humidity
+            val sunrise = resultList.sunrise?.toLong()
+            val sunset = resultList.sunset.toLong()
+            val weatherDescription = resultList.description
+            val address = resultList.name + ", " + resultList.country
+
+
+            /* Populating extracted data into our views */
+            findViewById<TextView>(R.id.address).text = address
+            findViewById<TextView>(R.id.updated_at).text = updatedAt.toString()
+            findViewById<TextView>(R.id.status).text = weatherDescription.capitalize()
+            findViewById<TextView>(R.id.temp).text = temp.toString()
+            findViewById<TextView>(R.id.temp_min).text = tempMin
+            findViewById<TextView>(R.id.temp_max).text = tempMax
+            if (sunrise != null) {
+                findViewById<TextView>(R.id.sunrise).text =
+                    SimpleDateFormat("hh:mm a", Locale.ENGLISH).format(Date(sunrise * 1000))
+            }
+            findViewById<TextView>(R.id.sunset).text =
+                SimpleDateFormat("hh:mm a", Locale.ENGLISH).format(Date(sunset * 1000))
+
+            findViewById<TextView>(R.id.humidity).text = humidity.toString()
+
 
         }
 
