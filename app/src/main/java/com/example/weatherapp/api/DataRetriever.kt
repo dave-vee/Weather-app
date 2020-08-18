@@ -12,7 +12,7 @@ class DataRetriever {
 
     companion object {
         //1
-        const val BASE_URL = "https://api.github.com/"
+        const val BASE_URL = "https://api.openweathermap.org/data/2.5/weather"
     }
 
     init {
@@ -28,7 +28,7 @@ class DataRetriever {
     }
 
     suspend fun getData(): RetroResult {
-        return service.searchRepositories()
+        return service.searchData()
     }
 
 }

@@ -6,11 +6,11 @@ import retrofit2.http.GET
 
 interface WeatherService {
 
-    @GET("/repositories")
-    suspend fun retrieveRepositories(): RetroResult
+    @GET("/weather")
+    suspend fun retrieveData(): RetroResult
 
     //sample search
-    @GET("/search/repositories?q=language:kotlin&sort=stars&order=desc&per_page=50")
-    suspend fun searchRepositories(): RetroResult
+//    @GET("/search/weather/?q=$city&units=metric&appid=$api")
+    suspend fun searchData(): RetroResult
 
 }

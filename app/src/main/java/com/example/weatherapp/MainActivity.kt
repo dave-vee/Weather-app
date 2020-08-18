@@ -5,12 +5,18 @@ import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Bundle
+import android.view.View
+import android.widget.ProgressBar
+import android.widget.RelativeLayout
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.weatherapp.api.DataRetriever
 import kotlinx.coroutines.*
 
 
 class MainActivity : AppCompatActivity() {
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         // Switch to AppTheme for displaying the activity
         setTheme(R.style.AppTheme)
@@ -18,17 +24,24 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        findViewById<ProgressBar>(R.id.loader).visibility = View.VISIBLE
+        findViewById<RelativeLayout>(R.id.mainContainer).visibility = View.GONE
+        findViewById<TextView>(R.id.errorText).visibility = View.GONE
+
         if (isNetworkConnected()) {
-            retrieveRepositories()
+            retrieveData()
         } else {
             AlertDialog.Builder(this).setTitle("No Internet Connection")
                 .setMessage("Please check your internet connection and try again")
                 .setPositiveButton(android.R.string.ok) { _, _ -> }
                 .setIcon(android.R.drawable.ic_dialog_alert).show()
         }
+
+
     }
 
-    fun retrieveRepositories() {
+
+    private fun retrieveData() {
         //1 Create a Coroutine scope using a job to be able to cancel when needed
         val mainActivityJob = Job()
 
@@ -51,13 +64,19 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    fun isNetworkConnected(): Boolean {
+    private fun isNetworkConnected(): Boolean {
         val connectivityManager =
             getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val activeNetwork = connectivityManager.activeNetwork
         val networkCapabilities = connectivityManager.getNetworkCapabilities(activeNetwork)
         return networkCapabilities != null &&
                 networkCapabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
+    }
+
+    fun refreshData(view: View) {
+
+        refreshData(view)
+
     }
 
 }

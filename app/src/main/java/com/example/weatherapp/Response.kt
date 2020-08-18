@@ -1,8 +1,8 @@
 package com.example.weatherapp
 
-import android.content.ClipData
+import java.io.DataInputStream
 
-data class RetroResult(val items: List<ClipData.Item>)
+data class RetroResult(val dataInputStream: DataInputStream)
 data class Response(
     var date: Double?,
     var name: String?,
