@@ -28,12 +28,6 @@
                 android:text="Nairobi ,KE"
                 android:textSize="24dp" />
 
-            <TextView
-                android:id="@+id/updated_at"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="2020/8/3 20:08 PM"
-                android:textSize="14dp" />
         </LinearLayout>
 
 

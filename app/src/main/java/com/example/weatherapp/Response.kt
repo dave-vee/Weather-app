@@ -4,15 +4,33 @@ package com.example.weatherapp
 data class Response(
     var date: Double?,
     var name: String?,
-    var country: String?,
-    var temp: Long?,
-    var tempMin: String,
-    var tempMax: String,
-    var humidity: Long?,
-    var sunrise: String?,
-    var sunset: String,
-    var description: String,
-    var address: String?
+    var sys: Sys,
+    var main: Main,
+    var weather: ArrayList<Weather>,
+    var address: String?,
+    val wind: Wind
 
 )
 
+data class Wind(
+    val speed: Double,
+    val deg: Int
+)
+
+data class Weather(
+    val description: String,
+)
+
+data class Sys(
+    val country: String,
+    var sunrise: Long,
+    var sunset: Long
+)
+
+data class Main(
+    val temp: Double,
+    var humidity: Long,
+    var tempMin: Double,
+    var tempMax: Double,
+
+    )

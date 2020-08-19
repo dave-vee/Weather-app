@@ -1,20 +1,20 @@
 package com.example.weatherapp.api
 
 
-import com.example.weatherapp.Request.Companion.api
-import com.example.weatherapp.Request.Companion.city
-import com.example.weatherapp.Response
 
+import com.example.weatherapp.Response
 import retrofit2.http.GET
+
+import retrofit2.http.Query
 
 interface WeatherService {
 
 
-    @GET("/weather")
-    suspend fun retrieveData(): Response
-
     //sample search
-    @GET("/search/weather/?q=$city&units=metric&appid=$api")
-    suspend fun searchData(): Response
+    @GET("data/2.5/weather/")
+    suspend fun searchData(
+        @Query("q") city: String,
+        @Query("appid") appId: String
+    ): Response
 
 }
