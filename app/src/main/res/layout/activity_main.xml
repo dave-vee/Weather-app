@@ -82,7 +82,7 @@
                     android:id="@+id/temp_min"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Min Temp: 05:05 AM" />
+                    android:text="Min Temp: " />
 
                 <Space
                     android:layout_width="50dp"
@@ -92,7 +92,7 @@
                     android:id="@+id/temp_max"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Max Temp: 05:05 PM" />
+                    android:text="Max Temp: " />
             </LinearLayout>
 
         </LinearLayout>
@@ -141,7 +141,7 @@
                         android:id="@+id/sunrise"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="06:40 AM"
+                        android:text=""
                         android:textSize="14dp" />
                 </LinearLayout>
 
@@ -178,7 +178,7 @@
                         android:id="@+id/sunset"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="06:40 AM"
+                        android:text=""
                         android:textSize="14dp" />
                 </LinearLayout>
 
@@ -215,7 +215,7 @@
                         android:id="@+id/wind"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="06:40 AM"
+                        android:text=""
                         android:textSize="14dp" />
                 </LinearLayout>
             </LinearLayout>
@@ -224,29 +224,25 @@
                 android:layout_width="wrap_content"
                 android:layout_height="10dp" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="3">
+            java.net.SocketTimeoutException:
 
                 <Space
                     android:layout_width="10dp"
                     android:layout_height="wrap_content" />
 
                 <LinearLayout
-                    android:layout_width="70dp"
+                    android:layout_width="120dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="120dp"
                     android:layout_weight="1"
                     android:background="#3CF1EBF1"
                     android:gravity="center"
                     android:orientation="vertical"
-                    android:layout_marginStart="110dp"
                     android:padding="8dp">
 
                     <ImageView
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
+                        android:layout_width="50dp"
+                        android:layout_height="30dp"
                         android:src="@drawable/humidity"
                         app:tint="#FFFFFF" />
 
@@ -264,7 +260,7 @@
                         android:id="@+id/humidity"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="06:40 AM"
+
                         android:textSize="14sp" />
                 </LinearLayout>
 
@@ -272,7 +268,7 @@
                     android:layout_width="10dp"
                     android:layout_height="wrap_content" />
 
-            </LinearLayout>
+            <!--            </LinearLayout>-->
 
             <LinearLayout
                 android:layout_width="match_parent"

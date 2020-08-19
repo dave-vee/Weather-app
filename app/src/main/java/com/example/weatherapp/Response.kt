@@ -30,7 +30,7 @@ data class Sys(
 data class Main(
     val temp: Double,
     var humidity: Long,
-    var tempMin: Double,
-    var tempMax: Double,
+    var temp_min: Double,
+    var temp_max: Double,
 
     )

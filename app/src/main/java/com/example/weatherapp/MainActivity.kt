@@ -59,10 +59,10 @@ class MainActivity : AppCompatActivity() {
             //4
             val resultList = DataRetriever().getData(city_name.text.toString())
 
-            val updatedAt = resultList.date
+
             val temp = resultList.main.temp
-            val tempMin = resultList.main.tempMin
-            val tempMax = resultList.main.tempMax
+            val tempMin = resultList.main.temp_min
+            val tempMax = resultList.main.temp_max
             val humidity = resultList.main.humidity
             val sunrise = resultList.sys.sunrise
 
@@ -71,13 +71,18 @@ class MainActivity : AppCompatActivity() {
             val address = resultList.name + ", " + resultList.sys.country
             val wind = resultList.wind.speed
 
+            val temp1 = temp - 273
+            val temp_max1 = tempMax - 273
+            val temp_min1 = tempMin - 273
+
+
             /* Populating extracted data into our views */
             findViewById<TextView>(R.id.wind).text = wind.toString()
             findViewById<TextView>(R.id.address).text = address
             findViewById<TextView>(R.id.status).text = weatherDescription
-            findViewById<TextView>(R.id.temp).text = temp.toString()
-            findViewById<TextView>(R.id.temp_min).text = tempMin.toString()
-            findViewById<TextView>(R.id.temp_max).text = tempMax.toString()
+            findViewById<TextView>(R.id.temp).text = temp1.toInt().toString()
+            findViewById<TextView>(R.id.temp_min).text = temp_min1.toInt().toString()
+            findViewById<TextView>(R.id.temp_max).text = temp_max1.toInt().toString()
             if (sunrise != null) {
                 findViewById<TextView>(R.id.sunrise).text =
                     SimpleDateFormat("hh:mm a", Locale.ENGLISH).format(Date(sunrise * 1000))

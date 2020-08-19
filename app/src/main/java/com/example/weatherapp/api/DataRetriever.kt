@@ -52,8 +52,8 @@ class DataRetriever {
         return OkHttpClient.Builder()
             .addInterceptor(httpLoggingInterceptor)
 //            .connectionSpecs(Collections.singletonList(spec))
-            .connectTimeout(100, TimeUnit.SECONDS)
-            .readTimeout(100, TimeUnit.SECONDS)
+            .connectTimeout(30, TimeUnit.SECONDS)
+            .readTimeout(30, TimeUnit.SECONDS)
             .build()
 
 
