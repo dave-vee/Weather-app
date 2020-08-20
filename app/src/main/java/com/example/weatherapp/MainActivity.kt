@@ -6,12 +6,11 @@ import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Bundle
 import android.view.View
-import android.widget.ProgressBar
-import android.widget.RelativeLayout
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
 import com.example.weatherapp.api.DataRetriever
+import com.example.weatherapp.databinding.ActivityMainBinding
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.*
 import java.text.SimpleDateFormat
@@ -19,6 +18,9 @@ import java.util.*
 
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMainBinding
+
     //1 Create a Coroutine scope using a job to be able to cancel when needed
     val mainActivityJob = Job()
     val errorHandler = CoroutineExceptionHandler { _, exception ->
@@ -35,7 +37,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+
 
         if (isNetworkConnected()) {
             retrieveData()
@@ -45,7 +48,9 @@ class MainActivity : AppCompatActivity() {
                 .setPositiveButton(android.R.string.ok) { _, _ -> }
                 .setIcon(android.R.drawable.ic_dialog_alert).show()
         }
-
+        binding.refresh.setOnClickListener {
+            retrieveData()
+        }
 
     }
 
@@ -77,25 +82,20 @@ class MainActivity : AppCompatActivity() {
 
 
             /* Populating extracted data into our views */
-            findViewById<TextView>(R.id.wind).text = wind.toString()
-            findViewById<TextView>(R.id.address).text = address
-            findViewById<TextView>(R.id.status).text = weatherDescription
-            findViewById<TextView>(R.id.temp).text = temp1.toInt().toString()
-            findViewById<TextView>(R.id.temp_min).text = temp_min1.toInt().toString()
-            findViewById<TextView>(R.id.temp_max).text = temp_max1.toInt().toString()
-            if (sunrise != null) {
-                findViewById<TextView>(R.id.sunrise).text =
-                    SimpleDateFormat("hh:mm a", Locale.ENGLISH).format(Date(sunrise * 1000))
-            }
-            findViewById<TextView>(R.id.sunset).text =
+
+            binding.loader.visibility = View.GONE
+            binding.mainContainer.visibility = View.VISIBLE
+            binding.humidity.text = humidity.toString()
+            binding.wind.text = wind.toString()
+            binding.address.text = address
+            binding.status.text = weatherDescription
+            binding.temp.text = temp1.toInt().toString() + "°C"
+            binding.tempMax.text = " Min Temp :" + temp_min1.toInt().toString() + "°C"
+            binding.tempMin.text = "Max Temp :" + temp_max1.toInt().toString() + "°C"
+            binding.sunset.text =
                 SimpleDateFormat("hh:mm a", Locale.ENGLISH).format(Date(sunset * 1000))
-
-            findViewById<TextView>(R.id.humidity).text = humidity.toString()
-
-            findViewById<ProgressBar>(R.id.loader).visibility = View.GONE
-            findViewById<RelativeLayout>(R.id.mainContainer).visibility = View.VISIBLE
-            findViewById<TextView>(R.id.errorText).visibility = View.VISIBLE
-
+            binding.sunrise.text =
+                SimpleDateFormat("hh:mm a", Locale.ENGLISH).format(Date(sunrise * 1000))
 
         }
 
@@ -111,10 +111,5 @@ class MainActivity : AppCompatActivity() {
                 networkCapabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
     }
 
-    fun refreshData(view: View) {
-
-        retrieveData()
-
-    }
 
 }

@@ -2,7 +2,7 @@ package com.example.weatherapp.api
 
 
 
-import com.example.weatherapp.Response
+import com.example.weatherapp.data.Response
 import retrofit2.http.GET
 
 import retrofit2.http.Query

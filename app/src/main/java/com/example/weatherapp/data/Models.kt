@@ -1,4 +1,4 @@
-package com.example.weatherapp
+package com.example.weatherapp.data
 
 //data class RetroResult(val dataInputStream: DataInputStream)
 data class Response(

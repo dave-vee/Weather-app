@@ -3,8 +3,8 @@ package com.example.weatherapp.api
 // Other imported classes
 
 
-import com.example.weatherapp.Request
-import com.example.weatherapp.Response
+import com.example.weatherapp.data.Request
+import com.example.weatherapp.data.Response
 import okhttp3.CipherSuite
 import okhttp3.ConnectionSpec
 import okhttp3.OkHttpClient
@@ -52,8 +52,8 @@ class DataRetriever {
         return OkHttpClient.Builder()
             .addInterceptor(httpLoggingInterceptor)
 //            .connectionSpecs(Collections.singletonList(spec))
-            .connectTimeout(30, TimeUnit.SECONDS)
-            .readTimeout(30, TimeUnit.SECONDS)
+            .connectTimeout(10, TimeUnit.SECONDS)
+            .readTimeout(10, TimeUnit.SECONDS)
             .build()
 
 
