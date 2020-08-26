@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.example.weatherapp.api.DataRetriever
 import com.example.weatherapp.databinding.ActivityMainBinding
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.*
 import java.text.SimpleDateFormat
@@ -20,6 +21,7 @@ import java.util.*
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private lateinit var alertDialog: MaterialAlertDialogBuilder
 
     //1 Create a Coroutine scope using a job to be able to cancel when needed
     val mainActivityJob = Job()
@@ -43,6 +45,7 @@ class MainActivity : AppCompatActivity() {
         if (isNetworkConnected()) {
             retrieveData()
         } else {
+
             AlertDialog.Builder(this).setTitle("No Internet Connection")
                 .setMessage("Please check your internet connection and try again")
                 .setPositiveButton(android.R.string.ok) { _, _ -> }
