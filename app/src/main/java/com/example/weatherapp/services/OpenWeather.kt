@@ -3,7 +3,7 @@ package com.example.weatherapp.services
 // Other imported classes
 
 
-import com.example.weatherapp.data.Request
+import com.example.weatherapp.Request
 import com.example.weatherapp.data.Response
 import okhttp3.CipherSuite
 import okhttp3.ConnectionSpec

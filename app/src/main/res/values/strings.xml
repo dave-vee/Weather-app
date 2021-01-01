@@ -4,5 +4,7 @@
     <string name="refresh">Refresh</string>
     <string name="enter_city_name_here">Enter City Name here</string>
     <string name="something_went_wrong">Something went wrong</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
