@@ -9,5 +9,9 @@
     <string name="city_name">city_name</string>
     <string name="maxtemp">MaxTemp</string>
     <string name="mintemp">MinTemp</string>
+    <string name="weatherDescription">weatherDescription</string>
+    <string name="pressure">Pressure</string>
+    <string name="humidity">Humidity</string>
+    <string name="wind">Wind</string>
 
 </resources>
