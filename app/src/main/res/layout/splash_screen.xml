@@ -1,32 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_coolweather">
+    android:background="@drawable/bg_coolweather"
+    tools:context="SplashScreen">
 
 
     <TextView
-        android:id="@+id/appName"
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="445dp"
-        android:layout_marginBottom="10dp"
+        android:layout_gravity="center"
         android:fontFamily="sans-serif-condensed-medium"
-        android:gravity="center_horizontal"
-        android:padding="10dp"
         android:text="@string/app_name"
         android:textAlignment="center"
         android:textAllCaps="true"
-        android:textColor="#5C1B1B"
-        android:textSize="20sp" />
+        android:textColor="@android:color/holo_orange_light"
+        android:textSize="24sp" />
 
-    <ProgressBar
-        android:id="@+id/splash_screen_progress_bar"
-        style="@android:style/Widget.DeviceDefault.ProgressBar.Horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_margin="20dp"
-        android:progressTint="#6995c1" />
-</RelativeLayout>
+</FrameLayout>
