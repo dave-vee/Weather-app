@@ -23,9 +23,9 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var alertDialog: MaterialAlertDialogBuilder
 
-    //1 Create a Coroutine scope using a job to be able to cancel when needed
-    val mainActivityJob = Job()
-    val errorHandler = CoroutineExceptionHandler { _, exception ->
+    // Create a Coroutine scope using a job to be able to cancel when needed
+    private val mainActivityJob = Job()
+    private val errorHandler = CoroutineExceptionHandler { _, exception ->
         exception.printStackTrace()
         AlertDialog.Builder(this).setTitle("Error")
             .setMessage(exception.message)
@@ -33,8 +33,8 @@ class MainActivity : AppCompatActivity() {
             .setIcon(android.R.drawable.ic_dialog_alert).show()
     }
 
-    //3 the Coroutine runs using the Main (UI) dispatcher
-    val coroutineScope = CoroutineScope(mainActivityJob + Dispatchers.Main)
+    // the Coroutine runs using the Main (UI) dispatcher
+    private val coroutineScope = CoroutineScope(mainActivityJob + Dispatchers.Main)
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
