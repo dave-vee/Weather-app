@@ -9,8 +9,8 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import com.example.weatherapp.api.DataRetriever
 import com.example.weatherapp.databinding.ActivityMainBinding
+import com.example.weatherapp.services.OpenWeather
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.*
@@ -65,7 +65,7 @@ class MainActivity : AppCompatActivity() {
         }
         coroutineScope.launch(errorHandler) {
             //4
-            val resultList = DataRetriever().getData(city_name.text.toString())
+            val resultList = OpenWeather().getData(city_name.text.toString())
 
 
             val temp = resultList.main.temp

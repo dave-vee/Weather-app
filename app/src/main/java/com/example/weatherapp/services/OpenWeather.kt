@@ -1,4 +1,4 @@
-package com.example.weatherapp.api
+package com.example.weatherapp.services
 
 // Other imported classes
 
@@ -14,7 +14,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-class DataRetriever {
+class OpenWeather {
     private val service: WeatherService
 
     companion object {
