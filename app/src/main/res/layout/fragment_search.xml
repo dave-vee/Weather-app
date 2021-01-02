@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/ConstraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SearchFragment">
+
+    <data>
+
+        <variable
+            name="city_name"
+            type="String" />
+
+    </data>
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/materialCardView3"
@@ -23,16 +31,15 @@
             tools:layout_editor_absoluteX="-16dp"
             tools:layout_editor_absoluteY="16dp">
 
-            <!-- Title, secondary and supporting text -->
             <TextView
-                android:id="@+id/tv_city_name"
+                android:id="@+id/address"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/city_name"
+                android:text="@string/address"
                 android:textAppearance="?attr/textAppearanceHeadline6" />
 
             <TextView
-                android:id="@+id/tv_weather_description"
+                android:id="@+id/weather_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -41,16 +48,16 @@
                 android:textColor="?android:attr/textColorSecondary" />
 
             <TextView
-                android:id="@+id/tv_pressure"
+                android:id="@+id/temperature"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@string/pressure"
+                android:text="@string/temperature"
                 android:textAppearance="?attr/textAppearanceBody2"
                 android:textColor="?android:attr/textColorSecondary" />
 
             <TextView
-                android:id="@+id/tv_Humidity"
+                android:id="@+id/humidity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -59,7 +66,7 @@
                 android:textColor="?android:attr/textColorSecondary" />
 
             <TextView
-                android:id="@+id/tv_wind"
+                android:id="@+id/wind"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -78,12 +85,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:hint="Enter City Name"
+        android:hint="@string/enter_city_name"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/materialCardView3"
         tools:layout_editor_absoluteX="4dp">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/input_edit_text"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:inputType="text"
@@ -98,13 +106,14 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="170dp"
             android:layout_marginEnd="153dp"
-            android:text="Search"
+            android:text="@string/search"
             android:textAllCaps="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -112,5 +121,5 @@
     </RelativeLayout>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
 
