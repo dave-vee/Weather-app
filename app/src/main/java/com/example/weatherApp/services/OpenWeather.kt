@@ -1,10 +1,10 @@
-package com.example.weatherapp.services
+package com.example.weatherApp.services
 
 // Other imported classes
 
 
-import com.example.weatherapp.Request
-import com.example.weatherapp.models.Response
+import com.example.weatherApp.Request
+import com.example.weatherApp.models.Response
 import okhttp3.CipherSuite
 import okhttp3.ConnectionSpec
 import okhttp3.OkHttpClient

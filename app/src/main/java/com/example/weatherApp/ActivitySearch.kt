@@ -1,4 +1,4 @@
-package com.example.weatherapp
+package com.example.weatherApp
 
 import android.app.AlertDialog
 import android.net.ConnectivityManager
@@ -6,7 +6,7 @@ import android.net.NetworkCapabilities
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.weatherapp.services.OpenWeather
+import com.example.weatherApp.services.OpenWeather
 import kotlinx.android.synthetic.main.activity_search.*
 import kotlinx.coroutines.*
 
@@ -31,18 +31,19 @@ class ActivitySearch : AppCompatActivity() {
         setContentView(R.layout.activity_search)
 
 
-        if (isNetworkConnected()) {
-            retrieveData()
-        } else {
 
-            AlertDialog.Builder(this).setTitle("No Internet Connection")
-                .setMessage("Please check your internet connection and try again")
-                .setPositiveButton(android.R.string.ok) { _, _ -> }
-                .setIcon(android.R.drawable.ic_dialog_alert).show()
-        }
         btn_search.setOnClickListener {
-            retrieveData()
+            if (isNetworkConnected()) {
+                retrieveData()
+            } else {
+                AlertDialog.Builder(this).setTitle("No Internet Connection")
+                    .setMessage("Please check your internet connection and try again")
+                    .setPositiveButton(android.R.string.ok) { _, _ -> }
+                    .setIcon(android.R.drawable.ic_dialog_alert).show()
+            }
+
         }
+
 
     }
 
@@ -53,7 +54,7 @@ class ActivitySearch : AppCompatActivity() {
 
         }
         coroutineScope.launch(errorHandler) {
-            //4
+
             val resultList = OpenWeather().getData(input_edit_text.text.toString())
 
 

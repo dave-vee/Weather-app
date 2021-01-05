@@ -1,4 +1,4 @@
-package com.example.weatherapp.recyclerview
+package com.example.weatherApp.recyclerview
 
 //import android.util.Log
 //import android.view.LayoutInflater
