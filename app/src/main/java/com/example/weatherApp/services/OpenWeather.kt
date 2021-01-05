@@ -18,20 +18,20 @@ class OpenWeather {
     private val service: WeatherService
 
     companion object {
-        //1
+
         const val BASE_URL = "https://api.openweathermap.org/"
     }
 
     init {
-        // 2
+
         val retrofit = Retrofit.Builder()
-            // 1
+
             .baseUrl(BASE_URL)
-            //3
+
             .addConverterFactory(GsonConverterFactory.create())
             .client(getClient())
             .build()
-        //4
+
         service = retrofit.create(WeatherService::class.java)
     }
 
