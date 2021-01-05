@@ -27,7 +27,7 @@ private const val ARG_PARAM2 = "param2"
  */
 class SearchFragment : Fragment() {
 
-    private var viewBinding: SearchFragment? = null
+
 
 
     // Create a Coroutine scope using a job to be able to cancel when needed
@@ -53,7 +53,7 @@ class SearchFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewBinding = SearchFragment.bind(view)
+
         if (isNetworkConnected()) {
             retrieveData()
         } else {
@@ -72,7 +72,7 @@ class SearchFragment : Fragment() {
 
 
     private fun retrieveData() {
-        if (viewBinding?.input_edit_text?.text.toString().isEmpty()) {
+        if (input_edit_text?.text.toString().isEmpty()) {
             Toast.makeText(activity, "Enter city Name", Toast.LENGTH_SHORT).show()
 
         }
@@ -90,11 +90,11 @@ class SearchFragment : Fragment() {
 
 
             /* Populating extracted data into our views */
-            viewBinding?.address?.text = address.toString()
-            viewBinding?.weather_description?.text = weatherDescription
-            viewBinding?.temperature?.text = temp1.toInt().toString() + "°C"
-            viewBinding?.humidity?.text = humidity.toString()
-            viewBinding?.wind?.text = wind.toString()
+            w_address.text = address.toString()
+            weather_description?.text = weatherDescription
+            w_temperature?.text = temp1.toInt().toString() + "°C"
+            w_humidity.text = humidity.toString()
+            w_wind?.text = wind.toString()
 
 
         }
