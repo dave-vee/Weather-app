@@ -31,7 +31,7 @@ class WeatherAdapter(private val list: List<Response>) :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WeatherAdapter.ViewHolder {
         val view =
             LayoutInflater.from(parent.context)
-                .inflate(R.layout.fragment_updates, parent, false)
+                .inflate(R.layout.item_view_holder, parent, false)
         return ViewHolder(view)
     }
 

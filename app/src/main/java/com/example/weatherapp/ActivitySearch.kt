@@ -1,64 +1,41 @@
 package com.example.weatherapp
 
 import android.app.AlertDialog
-import android.content.Context.CONNECTIVITY_SERVICE
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
-import androidx.fragment.app.Fragment
+import androidx.appcompat.app.AppCompatActivity
 import com.example.weatherapp.services.OpenWeather
-import kotlinx.android.synthetic.main.fragment_search.*
+import kotlinx.android.synthetic.main.activity_search.*
 import kotlinx.coroutines.*
-import java.util.*
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [SearchFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class SearchFragment : Fragment() {
+class ActivitySearch : AppCompatActivity() {
 
 
-
-
-    // Create a Coroutine scope using a job to be able to cancel when needed
     private val mainActivityJob = Job()
     private val errorHandler = CoroutineExceptionHandler { _, exception ->
         exception.printStackTrace()
-        AlertDialog.Builder(activity).setTitle("Error")
+        AlertDialog.Builder(this).setTitle("Error")
             .setMessage(exception.message)
             .setPositiveButton(android.R.string.ok) { _, _ -> }
             .setIcon(android.R.drawable.ic_dialog_alert).show()
     }
 
     // the Coroutine runs using the Main (UI) dispatcher
-    private val coroutineScope = CoroutineScope(mainActivityJob + Dispatchers.IO)
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_search, container, false)
-    }
+    private val coroutineScope = CoroutineScope(mainActivityJob + Dispatchers.Main)
 
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_search)
+
 
         if (isNetworkConnected()) {
             retrieveData()
         } else {
 
-            AlertDialog.Builder(activity).setTitle("No Internet Connection")
+            AlertDialog.Builder(this).setTitle("No Internet Connection")
                 .setMessage("Please check your internet connection and try again")
                 .setPositiveButton(android.R.string.ok) { _, _ -> }
                 .setIcon(android.R.drawable.ic_dialog_alert).show()
@@ -67,13 +44,12 @@ class SearchFragment : Fragment() {
             retrieveData()
         }
 
-
     }
 
 
     private fun retrieveData() {
         if (input_edit_text?.text.toString().isEmpty()) {
-            Toast.makeText(activity, "Enter city Name", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Enter city Name", Toast.LENGTH_SHORT).show()
 
         }
         coroutineScope.launch(errorHandler) {
@@ -102,10 +78,8 @@ class SearchFragment : Fragment() {
 
     }
 
-
     private fun isNetworkConnected(): Boolean {
-        val connectivityManager =
-            activity!!.getSystemService(CONNECTIVITY_SERVICE) as ConnectivityManager
+        val connectivityManager = ConnectivityManager.CONNECTIVITY_ACTION as ConnectivityManager
         val activeNetwork = connectivityManager.activeNetwork
         val networkCapabilities = connectivityManager.getNetworkCapabilities(activeNetwork)
         return networkCapabilities != null &&
