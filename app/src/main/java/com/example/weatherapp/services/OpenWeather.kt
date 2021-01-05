@@ -4,7 +4,7 @@ package com.example.weatherapp.services
 
 
 import com.example.weatherapp.Request
-import com.example.weatherapp.data.Response
+import com.example.weatherapp.models.Response
 import okhttp3.CipherSuite
 import okhttp3.ConnectionSpec
 import okhttp3.OkHttpClient
