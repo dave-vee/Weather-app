@@ -1,7 +1,5 @@
 package com.example.weatherApp.services
 
-// Other imported classes
-
 
 import com.example.weatherApp.Request
 import com.example.weatherApp.models.Response

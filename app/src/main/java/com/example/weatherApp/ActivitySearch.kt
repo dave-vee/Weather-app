@@ -1,8 +1,9 @@
 package com.example.weatherApp
 
 import android.app.AlertDialog
+import android.content.Context
 import android.net.ConnectivityManager
-import android.net.NetworkCapabilities
+import android.net.NetworkInfo
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -33,7 +34,7 @@ class ActivitySearch : AppCompatActivity() {
 
 
         btn_search.setOnClickListener {
-            if (isNetworkConnected()) {
+            if (isNetworkAvailable()) {
                 retrieveData()
             } else {
                 AlertDialog.Builder(this).setTitle("No Internet Connection")
@@ -79,12 +80,13 @@ class ActivitySearch : AppCompatActivity() {
 
     }
 
-    private fun isNetworkConnected(): Boolean {
-        val connectivityManager = ConnectivityManager.CONNECTIVITY_ACTION as ConnectivityManager
-        val activeNetwork = connectivityManager.activeNetwork
-        val networkCapabilities = connectivityManager.getNetworkCapabilities(activeNetwork)
-        return networkCapabilities != null &&
-                networkCapabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
+
+    private fun isNetworkAvailable(): Boolean {
+        val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE)
+        return if (connectivityManager is ConnectivityManager) {
+            val networkInfo: NetworkInfo? = connectivityManager.activeNetworkInfo
+            networkInfo?.isConnected ?: false
+        } else false
     }
 
 
