@@ -71,8 +71,8 @@ class ActivitySearch : AppCompatActivity() {
             w_address.text = address.toString()
             weather_description?.text = weatherDescription
             w_temperature?.text = temp1.toInt().toString() + "°C"
-            w_humidity.text = humidity.toString()
-            w_wind?.text = wind.toString()
+            w_humidity.text = "$humidity%"
+            w_wind?.text = wind.toString() + "Km/h"
 
 
         }
