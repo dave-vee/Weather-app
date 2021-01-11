@@ -1,6 +1,7 @@
 package com.example.weatherApp
 
 import android.content.Intent
+import android.content.IntentFilter
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -8,11 +9,16 @@ import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
 
+
+    lateinit var reciever: MyBroadcastReciever
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
+        reciever = MyBroadcastReciever()
+        IntentFilter(Intent.ACTION_BATTERY_LOW).also {
+            registerReceiver(reciever, it)
+        }
     }
 
     fun search(view: View) {
@@ -20,5 +26,9 @@ class MainActivity : AppCompatActivity() {
         startActivity(myIntent)
     }
 
+    override fun onStop() {
+        super.onStop()
+        unregisterReceiver(reciever)
+    }
 
 }
