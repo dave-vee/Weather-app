@@ -14,10 +14,10 @@
 
 
         <activity
-            android:name="com.example.weatherApp.ActivitySearch"
+            android:name="com.example.weatherApp.ui.ActivitySearch"
             android:theme="@style/Theme.MaterialComponents.DayNight" />
         <activity
-            android:name="com.example.weatherApp.SplashScreen"
+            android:name="com.example.weatherApp.ui.SplashScreen"
             android:label="@string/app_name"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
             <intent-filter>
@@ -28,7 +28,7 @@
         </activity>
 
         <activity
-            android:name="com.example.weatherApp.MainActivity"
+            android:name="com.example.weatherApp.ui.MainActivity"
             android:theme="@style/Theme.MaterialComponents.DayNight">
 
         </activity>

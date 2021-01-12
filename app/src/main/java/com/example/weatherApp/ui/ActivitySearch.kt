@@ -1,4 +1,4 @@
-package com.example.weatherApp
+package com.example.weatherApp.ui
 
 import android.app.AlertDialog
 import android.content.Context
@@ -7,6 +7,7 @@ import android.net.NetworkInfo
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.weatherApp.R
 import com.example.weatherApp.services.OpenWeather
 import kotlinx.android.synthetic.main.activity_search.*
 import kotlinx.coroutines.*

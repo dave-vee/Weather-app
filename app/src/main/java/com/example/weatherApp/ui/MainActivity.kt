@@ -1,10 +1,12 @@
-package com.example.weatherApp
+package com.example.weatherApp.ui
 
 import android.content.Intent
 import android.content.IntentFilter
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.example.weatherApp.MyBroadcastReciever
+import com.example.weatherApp.R
 
 
 class MainActivity : AppCompatActivity() {

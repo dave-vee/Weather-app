@@ -1,9 +1,10 @@
-package com.example.weatherApp
+package com.example.weatherApp.ui
 
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
+import com.example.weatherApp.R
 import kotlinx.android.synthetic.main.splash_screen.*
 
 class SplashScreen : AppCompatActivity() {

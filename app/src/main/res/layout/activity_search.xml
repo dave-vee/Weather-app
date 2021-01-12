@@ -10,7 +10,7 @@
         android:id="@+id/ConstraintLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:context=".ActivitySearch">
+        tools:context=".ui.ActivitySearch">
 
 
         <com.google.android.material.card.MaterialCardView
