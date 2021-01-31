@@ -1,16 +1,15 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
+    <style name="AppTheme" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/material_on_primary_emphasis_medium</item>
         <item name="colorPrimaryDark">@color/material_on_primary_emphasis_high_type</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="CustomTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="colorPrimary">#122259</item>
-        <item name="colorPrimaryDark">#181C2C</item>
-        <item name="colorAccent">@android:color/holo_red_light</item>
+    <style name="SplashScreen" parent="Theme.MaterialComponents.NoActionBar">
+       <item name="android:windowBackground">@drawable/splash_screen</item>
+        <item name="android:statusBarColor">@color/cardview_shadow_start_color</item>
 
 
     </style>

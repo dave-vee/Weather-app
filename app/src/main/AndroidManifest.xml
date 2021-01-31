@@ -7,7 +7,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:icon="@drawable/bg_coolweather"
+        android:icon="@drawable/bg_cool_weather"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -16,21 +16,15 @@
         <activity
             android:name="com.example.weatherApp.ui.ActivitySearch"
             android:theme="@style/Theme.MaterialComponents.DayNight" />
+
         <activity
-            android:name="com.example.weatherApp.ui.SplashScreen"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
+            android:name="com.example.weatherApp.ui.MainActivity"
+            android:theme="@style/Theme.MaterialComponents.DayNight">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <activity
-            android:name="com.example.weatherApp.ui.MainActivity"
-            android:theme="@style/Theme.MaterialComponents.DayNight">
-
         </activity>
     </application>
 
